@@ -1,3 +1,5 @@
+import Home from "./views/pages/Home.js";
+
 import Navbar from "./views/components/Navbar.js";
 
 const app = async () => {
@@ -6,7 +8,9 @@ const app = async () => {
 
   header.innerHTML = await Navbar.render();
   await Navbar.after_render();
-  content.innerHTML = "All News";
+
+  content.innerHTML = await Home.render();
+  await Home.after_render();
 };
 
 window.addEventListener("hashchange", app);
