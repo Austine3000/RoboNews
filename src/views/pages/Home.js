@@ -27,8 +27,15 @@ let Home = {
                 <ul>
                     ${articles
                       .map(
-                        article =>
-                          /*html*/ `<li><a href="#/article/${article.id}">${article.title}</a></li>`
+                        article => /*html*/ `
+                            <li>
+                              <a href="#/article/${article.id}">${article.title}</a>
+                                 <a class="button is-primary" href="#/edit-article/${article.id}">
+                                        <strong>Edit</strong>
+                                    </a>
+                            </li>
+                          
+                          `
                       )
                       .join("\n ")}
                 </ul>
