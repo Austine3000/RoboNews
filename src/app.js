@@ -1,5 +1,6 @@
 import Home from "./views/pages/Home.js";
 import Article from "./views/pages/Article.js";
+import ArticleForm from "./views/pages/ArticleForm.js";
 
 import Navbar from "./views/components/Navbar.js";
 
@@ -7,7 +8,9 @@ import Utils from "./services/Utils.js";
 
 const routes = {
   "/": Home,
-  "/article/:id": Article
+  "/article/:id": Article,
+  "/create-article": ArticleForm,
+  "/edit-article/:id": ArticleForm
 };
 
 const app = async () => {
