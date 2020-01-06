@@ -1,3 +1,23 @@
+export const getArticlesList = async page => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+  try {
+    const response = await fetch(
+      `http://5e0df4b536b80000143db9ca.mockapi.io/etranzact/v1/article?page=${page}&limit=10`,
+      options
+    );
+    const json = await response.json();
+    // console.log(json)
+    return json;
+  } catch (err) {
+    console.log("Error getting documents", err);
+  }
+};
+
 export const PostArticle = async payload => {
   const options = {
     method: "POST",
@@ -49,7 +69,7 @@ export const EditArticle = async (payload, id) => {
   };
   try {
     const response = await fetch(
-      `http://5e0df4b536b80000143db9ca.mockapi.io/etranzact/v1/article/`+ id,
+      `http://5e0df4b536b80000143db9ca.mockapi.io/etranzact/v1/article/` + id,
       options
     );
     const json = await response.json();

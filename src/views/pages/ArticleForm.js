@@ -43,9 +43,9 @@ let ArticleForm = {
     if (request.resource === "edit-article") {
       let article = await Article.GetArticle(request.id);
       document.getElementById("author_input").value = article.author || "";
-      document.getElementById("title_input").value = article.title;
-      document.getElementById("avatar_input").value = article.avatar;
-      document.getElementById("url_input").value = article.url;
+      document.getElementById("title_input").value = article.title || "";
+      document.getElementById("avatar_input").value = article.avatar || "";
+      document.getElementById("url_input").value = article.url || "";
     }
 
     document
