@@ -1,4 +1,4 @@
-import Utils from "./../../services/Utils.js";
+import Utils from "../../services/Utils.js";
 import { GetArticle, GetArticleImage } from "../../actions/articles.js";
 import {
   GetComments,

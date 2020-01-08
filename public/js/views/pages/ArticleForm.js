@@ -1,5 +1,5 @@
 import * as Article from "../../actions/articles.js";
-import Utils from "./../../services/Utils.js";
+import Utils from "../../services/Utils.js";
 
 let ArticleForm = {
   render: async () => {
