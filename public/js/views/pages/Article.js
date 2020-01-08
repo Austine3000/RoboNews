@@ -9,10 +9,10 @@ import {
 } from "../../actions/comments.js";
 
 let Article = {
-  render: async () => {
+  render: async commentList => {
     const request = Utils.parseRequestURL();
     const article = await GetArticle(request.id);
-    const comments = await GetComments(request.id);
+    const comments = commentList ? commentList : await GetComments(request.id);
     const images = await GetArticleImage(request.id);
 
     return /*html*/ `
@@ -136,8 +136,6 @@ let Article = {
 
     document.querySelectorAll(".edit_comment").forEach(el => {
       el.addEventListener("click", async () => {
-        alert(el.value);
-
         commentId = el.value;
         update = true;
 
@@ -150,8 +148,6 @@ let Article = {
 
     document.querySelectorAll(".delete_comment").forEach(el => {
       el.addEventListener("click", async () => {
-        alert(el.value);
-
         await DeleteComment(request.id, el.value);
       });
     });
@@ -179,9 +175,11 @@ let Article = {
             const response = update
               ? await EditComment(payload, request.id, commentId)
               : await PostComment(payload, request.id);
-            console.log(response);
+
             commentId = null;
             update = false;
+            const comments = await GetComments(request.id);
+            Article.render(comments);
             document.getElementById("name_input").value = "";
             document.getElementById("avatar_input").value = "";
             document.getElementById("comment_input").value = "";

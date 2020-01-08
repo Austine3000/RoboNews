@@ -1,7 +1,6 @@
 import { getArticlesList } from "../../actions/articles.js";
 
 let Home = {
-  name: "new",
   render: async articlesList => {
     const page = 1;
     const articles = articlesList ? articlesList : await getArticlesList(page);
