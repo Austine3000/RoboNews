@@ -178,8 +178,7 @@ let Article = {
 
             commentId = null;
             update = false;
-            const comments = await GetComments(request.id);
-            Article.render(comments);
+
             document.getElementById("name_input").value = "";
             document.getElementById("avatar_input").value = "";
             document.getElementById("comment_input").value = "";
