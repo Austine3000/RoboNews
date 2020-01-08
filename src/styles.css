@@ -1,0 +1,136 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  margin: 0 auto;
+  background-color: #eaedf3;
+
+  width: 1000px;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.heading-logo {
+  margin: 20px 0;
+}
+
+.heading-logo a {
+  color: black;
+  font-size: 25px;
+  font-weight: bolder;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.card {
+  padding: 20px;
+  margin: 20px 0px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 24px #f1f2f4;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.article-title {
+  margin: 5px 0px;
+}
+
+.article-title a {
+  color: #e91e63;
+  font-size: 21px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.page-title {
+  font-size: 23px;
+  margin: 10px 0px;
+}
+
+a.btn-link {
+  border: 2px;
+}
+
+.article-action-bar {
+  margin: 10px 0px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 2px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #ff5722;
+  color: #fff;
+}
+
+.shift-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input {
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0;
+  border: 0px;
+  border-radius: 4px;
+}
+
+.pagination-box {
+  margin: 20px 0px;
+}
+
+.avatar-area {
+  margin-right: 20px;
+}
+
+.avatar-area img {
+  border-radius: 50%;
+}
+
+.style-card-items {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mySlides {
+  display: none;
+  height: auto;
+}
+
+.centre-button {
+  margin: 36px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.slider-container {
+  position: relative;
+}

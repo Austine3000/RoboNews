@@ -8,28 +8,47 @@ let Home = {
 
     let view = /*html*/ `
             <section class="section">
-                <h1> Home </h1>
-                <ul>
-                    ${articles
-                      .map(
-                        article => /*html*/ `
-                            <li>
-                              <a href="#/article/${article.id}">${article.title}</a>
-                                 <a class="button is-primary" href="#/edit-article/${article.id}">
-                                    <strong>Edit</strong>
-                                </a>
-                            </li>
-                          
-                          `
-                      )
-                      .join("\n ")}
-                </ul>
+                <div class="article-action-bar shift-end">
+                  <a class="btn-link btn btn-primary" href="#/create-article">
+                      New Article
+                  </a>
+                </div>
                 <div>
-                  <button class="button" id="prev_btn" >
-                    <strong>Prev</strong>
+                  <ul>
+                      ${articles
+                        .map(
+                          article => /*html*/ `
+                              <li>
+                                <div class="card">
+                                  <h3 class="article-title"><a href="#/article/${
+                                    article.id
+                                  }">${article.title}</a></h3>
+                                  <span> by ${
+                                    article.author
+                                      ? ` ${article.author}`
+                                      : "anonymous"
+                                  }</span>
+                                  <div class="article-action-bar">
+                                    <a class="btn-link btn btn-warning" href="#/edit-article/${
+                                      article.id
+                                    }">
+                                        Edit
+                                    </a>
+                                  </div>
+                                </div>
+                              </li>
+                            
+                            `
+                        )
+                        .join("\n ")}
+                  </ul>
+                </div>
+                <div class="pagination-box">
+                  <button class="btn" id="prev_btn" >
+                    Prev
                   </button>
-                  <button class="button is-primary" id="next_btn">
-                    <strong>Next</strong>
+                  <button class="btn btn-primary" id="next_btn">
+                    Next
                   </button>
                 </div>
             </section>
@@ -58,7 +77,6 @@ let Home = {
       } else {
         document.getElementById("next_btn").disabled = true;
       }
-     
     });
   }
 };

@@ -5,33 +5,40 @@ let ArticleForm = {
   render: async () => {
     return /*html*/ `
             <section>
+              <h2 class="page-title">Article</h2>
                 <div>
                     <p>
+                      <label>Author:</label>
                       <input class="input" id="author_input" type="text" placeholder="Enter your author">
                     </p>
                 </div>
                 <div>
                     <p>
+                    <label>Title:</label>
                       <input class="input" id="title_input" type="text" placeholder="Enter your title">
                     </p>
                 </div>
                 <div>
                     <p>
+                    <label>Avatar:</label>
                       <input class="input" id="avatar_input" type="text" placeholder="Enter a avatar">
                     </p>
                 </div>
                  <div>
                     <p>
+                    <label>Url:</label>
                       <input class="input" id="url_input" type="text" placeholder="Enter a url">
                     </p>
                 </div>
                 <div class="field">
                     <p class="control">
-                        <button class="button is-primary" id="submit_btn">
-                        Submit
+                        <button class="btn btn-primary" id="submit_btn">
+                          <div class="" id="loader-article">Submit</div> 
                         </button>
                     </p>
                 </div>
+
+                <div id="snackbar"></div>
 
             </section>
         `;
@@ -70,13 +77,36 @@ let ArticleForm = {
             url: url.value
           };
 
-          let response =
-            request.resource === "edit-article"
-              ? await Article.EditArticle(payload, request.id)
-              : await Article.PostArticle(payload);
+          document.getElementById("loader-article").classList.add("loader");
+          document.getElementById("loader-article").innerHTML = "";
 
-          if (response) {
-            console.log("Success");
+          try {
+            let response =
+              request.resource === "edit-article"
+                ? await Article.EditArticle(payload, request.id)
+                : await Article.PostArticle(payload);
+
+            document
+              .getElementById("loader-article")
+              .classList.remove("loader");
+            document.getElementById("loader-article").innerHTML = "Submit";
+            let x = document.getElementById("snackbar");
+            x.innerHTML = "Successfully submitted data";
+            x.className = "show";
+            setTimeout(function() {
+              x.className = x.className.replace("show", "");
+            }, 3000);
+          } catch (err) {
+            document
+              .getElementById("loader-article")
+              .classList.remove("loader");
+            document.getElementById("loader-article").innerHTML = "Submit";
+            let x = document.getElementById("snackbar");
+            x.innerHTML = "Error occured while submitting";
+            x.className = "show";
+            setTimeout(function() {
+              x.className = x.className.replace("show", "");
+            }, 3000);
           }
         }
       });

@@ -16,7 +16,7 @@ export const GetComments = async id => {
     // console.log(json)
     return json;
   } catch (err) {
-    console.log("Error getting documents", err);
+    return err;
   }
 };
 
@@ -39,7 +39,7 @@ export const GetSingleComment = async (id, commentId) => {
     // console.log(json)
     return json;
   } catch (err) {
-    console.log("Error getting documents", err);
+    return err;
   }
 };
 
@@ -62,7 +62,7 @@ export const PostComment = async (payload, id) => {
     // console.log(json)
     return json;
   } catch (err) {
-    console.log("Error getting documents", err);
+    return err;
   }
 };
 
@@ -86,7 +86,7 @@ export const EditComment = async (payload, id, commentId) => {
     // console.log(json)
     return json;
   } catch (err) {
-    alert("Error updating documents", err);
+    return err;
   }
 };
 
@@ -109,6 +109,6 @@ export const DeleteComment = async (id, commentId) => {
     // console.log(json)
     return json;
   } catch (err) {
-    alert("Error deleting documents", err);
+    return err;
   }
 };
